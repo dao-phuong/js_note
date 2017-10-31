@@ -10,3 +10,5 @@ Some important note about JavaScript
 + number<br>
 + object<br>
 
+## Some note about 'this'
+https://viblo.asia/p/this-trong-javascript-gAm5ywe8Zdb?utm_source=newsletter&utm_medium=email&utm_campaign=weekly_digest
