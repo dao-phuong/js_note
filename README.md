@@ -162,3 +162,6 @@ var charsInBody = (function counter(elm) {
 })(document.body);
 ```
 The name provided to a function expression as above is only available to the function's own scope. This allows more optimizations to be done by the engine and results in more readable code. The name also shows up in the debugger and some stack traces, which can save you time when debugging.
+
+### Inner function and closure is remaining
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
