@@ -77,3 +77,28 @@ You could also iterate over an array using a for...in loop. But if someone added
   // Do something with currentValue or array[index]
 });
 ```
+
+## Functions
+```
+function add() {
+  var sum = 0;
+  for (var i = 0, j = arguments.length; i < j; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+}
+
+add(2, 3, 4, 5); // 14
+```
+This is pretty useful, but it does seem a little verbose.To diminish this code a bit more we can look at substituting the use of the arguments array through Rest parameter syntax.
+```
+function avg(...args) {
+  var sum = 0;
+  for (let value of args) {
+    sum += value;
+  }
+  return sum / args.length;
+}
+
+avg(2, 3, 4, 5); // 3.5
+```
