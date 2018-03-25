@@ -102,3 +102,63 @@ function avg(...args) {
 
 avg(2, 3, 4, 5); // 3.5
 ```
+
+The avg() function takes a comma-separated list of arguments — but what if you want to find the average of an array? You could just rewrite the function as follows:
+```
+function avgArray(arr) {
+  var sum = 0;
+  for (var i = 0, j = arr.length; i < j; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+
+avgArray([2, 3, 4, 5]); // 3.5
+```
+But it would be nice to be able to reuse the function that we've already created. Luckily, JavaScript lets you call a function with an arbitrary array of arguments, using the apply() method of any function object.
+```
+avg.apply(null, [2, 3, 4, 5]); // 3.5
+```
+
+JavaScript lets you create anonymous functions.
+```
+var a = 1;
+var b = 2;
+
+(function() {
+  var b = 3;
+  a += b;
+})();
+
+a; // 4
+b; // 2
+```
+
+JavaScript allows you to call functions recursively. This is particularly useful for dealing with tree structures, such as those found in the browser DOM.
+```
+function countChars(elm) {
+  if (elm.nodeType == 3) { // TEXT_NODE
+    return elm.nodeValue.length;
+  }
+  var count = 0;
+  for (var i = 0, child; child = elm.childNodes[i]; i++) {
+    count += countChars(child);
+  }
+  return count;
+}
+```
+
+This highlights a potential problem with anonymous functions: how do you call them recursively if they don't have a name? JavaScript lets you name function expressions for this. You can use named IIFEs (Immediately Invoked Function Expressions) as shown below:
+```
+var charsInBody = (function counter(elm) {
+  if (elm.nodeType == 3) { // TEXT_NODE
+    return elm.nodeValue.length;
+  }
+  var count = 0;
+  for (var i = 0, child; child = elm.childNodes[i]; i++) {
+    count += counter(child);
+  }
+  return count;
+})(document.body);
+```
+The name provided to a function expression as above is only available to the function's own scope. This allows more optimizations to be done by the engine and results in more readable code. The name also shows up in the debugger and some stack traces, which can save you time when debugging.
