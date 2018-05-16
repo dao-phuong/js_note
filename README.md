@@ -185,3 +185,9 @@ var boundGetX = retrieveX.bind(module);
 console.log(boundGetX());
 // expected output: 42
 ```
+
+## assign-by-value and assign-by-reference (Gán tham trị và Gán tham chiếu)
+- ***The typeof value assigned to a variable decides whether the value is stored with assign-by-value or assign-by-reference***
+- the scalar primitive values (Number, String, Boolean, undefined, null, Symbol) are *assigned-by-value* and compound values (Object, Array) are *assigned-by-reference*
+- The references in JavaScript only point at contained values and NOT at other variables, or references
+- In JavaScript, scalar primitive values (Number, String, Boolean, undefined, null, Symbol) are *immutable* and compound values (Object, Array) are *mutable*
