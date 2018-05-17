@@ -191,3 +191,16 @@ console.log(boundGetX());
 - the scalar primitive values (Number, String, Boolean, undefined, null, Symbol) are *assigned-by-value* and compound values (Object, Array) are *assigned-by-reference*
 - The references in JavaScript only point at contained values and NOT at other variables, or references
 - In JavaScript, scalar primitive values (Number, String, Boolean, undefined, null, Symbol) are *immutable* and compound values (Object, Array) are *mutable*
+
+## Some Katas about Array
+
+### Splitting array into N arrays
+```
+function split(arr, n) {
+  var result = [];
+  while(arr.length) {
+     result.push(arr.splice(0, n)); 
+  }
+  return res;
+}
+```
